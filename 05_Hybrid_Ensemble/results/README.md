@@ -19,7 +19,7 @@ Bu klasör, `05_Hybrid_Ensemble/notebook.ipynb` çalıştırıldıktan sonra olu
 ### 1. Stacking Ensemble
 **Base modeller:** RF + XGBoost + LightGBM  
 **Meta-learner:** Logistic Regression  
-**Eğitim:** Out-of-fold (OOF) predictions (TimeSeriesSplit, 5 fold)
+**Eğitim:** Out-of-fold (OOF) predictions (TimeSeriesSplit, 5 folds)
 
 ```
 [RF proba] ─┐
