@@ -16,7 +16,14 @@ Bu klasör, `06_RUL_Prediction/notebook.ipynb` çalıştırıldıktan sonra olu�
 | `maintenance_timeline.png` | Renklendirilmiş bakım karar bölgeleri + RUL takip grafiği |
 | `rul_model_comparison.png` | LSTM vs GRU MAE/RMSE karşılaştırması |
 
-## RUL Tahmin Metodolojisi
+### Veri Dosyaları (CSV / JSON)
+
+| Dosya | Açıklama |
+|-------|----------|
+| `rul_model_metrics.csv` | LSTM / GRU: MAE, RMSE, R² karşılaştırma tablosu |
+| `early_warning_accuracy.csv` | 24h/48h/72h erken uyarı doğruluğu (LSTM ve GRU için) |
+| `rul_predictions.csv` | Test seti: gerçek RUL + LSTM tahmini + GRU tahmini (saat cinsinden) |
+| `weibull_parameters.json` | Weibull fit parametreleri: shape (k), scale (λ), MTTF |
 
 ### Adım 1: RUL Hesaplama
 Her anomali olayından önce geriye doğru geri sayım yapılır:

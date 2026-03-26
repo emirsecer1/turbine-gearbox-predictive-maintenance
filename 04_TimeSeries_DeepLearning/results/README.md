@@ -12,10 +12,15 @@ Bu klasör, `04_TimeSeries_DeepLearning/notebook.ipynb` çalıştırıldıktan s
 | `dl_roc_pr_curves.png` | Derin öğrenme modellerinin ROC ve PR eğrileri |
 | `dl_model_comparison.png` | Metrik karşılaştırma ısı haritası |
 
-### Model Dosyaları
+### Model ve Veri Dosyaları (CSV / H5)
 
 | Dosya | Açıklama |
 |-------|----------|
+| `dl_model_metrics.csv` | LSTM / TCN / Transformer: Precision/Recall/F1/ROC-AUC/PR-AUC tablosu |
+| `training_history_lstm.csv` | LSTM epoch bazında train/val loss ve AUC geçmişi |
+| `training_history_tcn.csv` | TCN epoch bazında train/val loss geçmişi |
+| `training_history_transformer.csv` | Transformer epoch bazında train/val loss geçmişi |
+| `dl_test_predictions.csv` | Test seti için her modelin tahmin olasılıkları + gerçek etiket |
 | `lstm_best.h5` | En iyi LSTM model ağırlıkları |
 | `tcn_best.h5` | En iyi TCN model ağırlıkları |
 | `transformer_best.h5` | En iyi Transformer model ağırlıkları |

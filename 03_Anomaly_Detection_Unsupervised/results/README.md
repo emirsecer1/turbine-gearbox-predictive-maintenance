@@ -14,11 +14,13 @@ Bu klasör, `03_Anomaly_Detection_Unsupervised/notebook.ipynb` çalıştırıld�
 | `sensor_anomaly_contribution.png` | Sensör → anomali skoru korelasyonu (hangi sensör en çok katkı sağlıyor?) |
 | `unsupervised_comparison.png` | Yöntemler arası ROC-AUC ve PR-AUC bar karşılaştırması |
 
-### Veri Dosyaları
+### Veri Dosyaları (CSV / JSON)
 
 | Dosya | Açıklama |
 |-------|----------|
-| `../data/processed/unsupervised_scores.csv` | IF ve Autoencoder anomali skorları (05_Hybrid_Ensemble için) |
+| `unsupervised_comparison.csv` | IF / OC-SVM / LOF / Autoencoder: ROC-AUC ve PR-AUC tablosu |
+| `all_anomaly_scores.csv` | IF ve Autoencoder anomali skorları + gerçek etiket (tüm dataset) |
+| `../data/processed/unsupervised_scores.csv` | IF ve AE skorları (05_Hybrid_Ensemble'a girdi) |
 
 ## Beklenen Karşılaştırma Tablosu
 

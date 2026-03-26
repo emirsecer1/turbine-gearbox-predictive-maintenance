@@ -14,6 +14,14 @@ Bu klasör, `05_Hybrid_Ensemble/notebook.ipynb` çalıştırıldıktan sonra olu
 | `lime_example.png` | LIME açıklaması — tek bir anomali örneğinin yerel yorumu |
 | `final_comparison.png` | Tüm modeller için metrik ısı haritası + F1 bar chart |
 
+### Veri Dosyaları (CSV / JSON)
+
+| Dosya | Açıklama |
+|-------|----------|
+| `final_model_comparison.csv` | Tüm modeller: Classical ML + Ensemble — tam metrik tablosu |
+| `best_model_info.json` | En iyi modelin adı, F1, ROC-AUC, PR-AUC değerleri |
+| `shap_feature_importance.csv` | Feature bazında ortalama mutlak SHAP değerleri (sıralı) |
+
 ## Ensemble Stratejisi
 
 ### 1. Stacking Ensemble

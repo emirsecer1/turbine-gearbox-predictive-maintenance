@@ -18,11 +18,14 @@ Bu klasör, `01_EDA_Feature_Engineering/notebook.ipynb` çalıştırıldıktan s
 | `feature_importance_mutual_info.png` | Mutual information bazlı top-20 feature önemi |
 | `class_imbalance.png` | Sınıf dağılımı (pasta + bar grafik) |
 
-### Veri Dosyaları
+### Veri Dosyaları (CSV / JSON)
 
 | Dosya | Açıklama |
 |-------|----------|
-| `../data/processed/features_engineered.csv` | Mühendislik uygulanmış tam feature seti |
+| `feature_engineering_summary.csv` | Orijinal/rolling/lag/fourier feature sayıları + anomali oranı |
+| `mutual_info_scores.csv` | Tüm feature'lar için mutual information skoru (sıralı) |
+| `class_distribution.csv` | Normal / Anomali örnek sayısı ve yüzdesi |
+| `../data/processed/features_engineered.csv` | Mühendislik uygulanmış tam feature seti (sonraki notebook'lar için) |
 
 ## Oluşturulan Feature Grupları
 

@@ -15,10 +15,16 @@ Bu klasör, `02_Classical_ML_Baselines/notebook.ipynb` çalıştırıldıktan so
 | `feature_importance_models.png` | RF, XGBoost, LightGBM için top-20 feature önem grafikleri |
 | `model_comparison.png` | Tüm modellerin metrik karşılaştırma ısı haritası |
 
-### Model Dosyaları
+### Model Dosyaları ve Veri Çıktıları (CSV / PKL)
 
 | Dosya | Açıklama |
 |-------|----------|
+| `model_metrics.csv` | 4 modelin Precision/Recall/F1/ROC-AUC/PR-AUC tablosu (threshold=0.5) |
+| `model_metrics_optimized_threshold.csv` | Optimize edilmiş threshold ile metrik tablosu |
+| `feature_importance_random_forest.csv` | Random Forest feature önemleri (tüm feature'lar, sıralı) |
+| `feature_importance_xgboost.csv` | XGBoost feature önemleri |
+| `feature_importance_lightgbm.csv` | LightGBM feature önemleri |
+| `test_predictions.csv` | Test seti için her modelin tahmin olasılıkları + gerçek etiket |
 | `../models/best_classical_model.pkl` | F1 skoruna göre en iyi model (joblib formatı) |
 
 ## Beklenen Metrik Tablosu
