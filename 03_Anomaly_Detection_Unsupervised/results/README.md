@@ -20,7 +20,7 @@ Bu klasör, `03_Anomaly_Detection_Unsupervised/notebook.ipynb` çalıştırıld�
 |-------|----------|
 | `unsupervised_comparison.csv` | IF / OC-SVM / LOF / Autoencoder: ROC-AUC ve PR-AUC tablosu |
 | `all_anomaly_scores.csv` | IF ve Autoencoder anomali skorları + gerçek etiket (tüm dataset) |
-| `../data/processed/unsupervised_scores.csv` | IF ve AE skorları (05_Hybrid_Ensemble'a girdi) |
+| `unsupervised_scores.csv` | IF ve AE skorları (05_Hybrid_Ensemble'a girdi) |
 
 ## Beklenen Karşılaştırma Tablosu
 
