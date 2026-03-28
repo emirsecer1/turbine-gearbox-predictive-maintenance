@@ -99,6 +99,8 @@ Evaluates whether the model can correctly predict that failure is imminent withi
 | GRU | 5.19 | 5.20 | 0.0 |
 
 > **Key Insight:** LSTM achieves a mean absolute error of only ~4 hours, meaning it can predict the remaining useful life with an average error of less than 4 hours. This is highly actionable for maintenance scheduling.
+>
+> **Note on R²:** The R² of 0.0 is due to the bimodal distribution of RUL targets — most values are either 0 (anomaly active) or 168 (max RUL / healthy state). The MAE is a more informative metric for RUL tasks where the target distribution is heavily skewed.
 
 ### Early Warning Accuracy
 
