@@ -19,14 +19,13 @@ from docx.oxml import parse_xml
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_DIR = os.path.join(BASE_DIR, "report")
 
-PDF_CONVERSION_TIMEOUT = 180
+PDF_CONVERSION_TIMEOUT_SECONDS = 180
 HEX_COLOR_RE = re.compile(r"^[0-9A-Fa-f]{6}$")
 
 # IEEE two-column: page width 21cm, margins 1.75cm each side
 # Usable width = 21 - 1.75 - 1.75 = 17.5 cm
 # Column gap ~0.63cm => each column ~8.44cm => ~3.32 inches
 COL_IMG_WIDTH = Inches(3.25)
-FULL_IMG_WIDTH = Inches(6.5)
 
 
 def _valid_color(c):
@@ -673,6 +672,8 @@ def generate_report():
         "sunmaktadır. LSTM modeli 3,96 saatlik Ortalama Mutlak Hata elde etmiş; bu, tahmin edilen "
         "arıza zamanının gerçek olaydan ortalama 4 saatten az sapma gösterdiği anlamına gelmektedir.")
 
+    # OMH = Ortalama Mutlak Hata (Mean Absolute Error)
+    # KOKH = Kök Ortalama Kare Hatası (Root Mean Square Error)
     add_table(doc,
         ["Model", "OMH (saat)", "KOKH (saat)", "R\u00b2"],
         [
@@ -903,11 +904,13 @@ def generate_report():
         result = subprocess.run(
             ["libreoffice", "--headless", "--convert-to", "pdf",
              "--outdir", REPORT_DIR, docx_path],
-            capture_output=True, text=True, timeout=PDF_CONVERSION_TIMEOUT)
+            capture_output=True, text=True, timeout=PDF_CONVERSION_TIMEOUT_SECONDS)
         if result.returncode == 0:
             print(f"PDF saved: {os.path.join(REPORT_DIR, 'IEEE_Report_Wind_Turbine_Predictive_Maintenance.pdf')}")
         else:
             print(f"PDF error: {result.stderr}")
+    except subprocess.TimeoutExpired:
+        print(f"PDF conversion timed out after {PDF_CONVERSION_TIMEOUT_SECONDS} seconds")
     except Exception as e:
         print(f"PDF failed: {e}")
 
