@@ -13,14 +13,29 @@ from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.section import WD_ORIENT
 from docx.oxml.ns import qn, nsdecls
 from docx.oxml import parse_xml
+import re
 import subprocess
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORT_DIR = os.path.join(BASE_DIR, "report")
 
+# Constants
+HORIZONTAL_LINE_WIDTH = 90
+SEPARATOR_LINE_WIDTH = 50
+PDF_CONVERSION_TIMEOUT = 120
+HEX_COLOR_PATTERN = re.compile(r"^[0-9A-Fa-f]{6}$")
+
+
+def _validate_hex_color(color):
+    """Validate that a color string is a valid 6-character hex color."""
+    if not HEX_COLOR_PATTERN.match(color):
+        raise ValueError(f"Invalid hex color: {color!r}")
+    return color
+
 
 def set_cell_shading(cell, color):
     """Set background color for a table cell."""
+    color = _validate_hex_color(color)
     shading = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{color}"/>')
     cell._tc.get_or_add_tcPr().append(shading)
 
@@ -253,7 +268,7 @@ def generate_report():
     # ─── Horizontal line ───
     p_line = doc.add_paragraph()
     p_line.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run_line = p_line.add_run("─" * 90)
+    run_line = p_line.add_run("─" * HORIZONTAL_LINE_WIDTH)
     run_line.font.size = Pt(6)
     run_line.font.color.rgb = RGBColor(100, 100, 100)
 
@@ -316,7 +331,7 @@ def generate_report():
     # ─── Separator ───
     p_sep = doc.add_paragraph()
     p_sep.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run_sep = p_sep.add_run("─" * 50)
+    run_sep = p_sep.add_run("─" * SEPARATOR_LINE_WIDTH)
     run_sep.font.size = Pt(6)
     run_sep.font.color.rgb = RGBColor(150, 150, 150)
 
@@ -380,7 +395,7 @@ def generate_report():
     # ─── Horizontal line ───
     p_line2 = doc.add_paragraph()
     p_line2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run_line2 = p_line2.add_run("─" * 90)
+    run_line2 = p_line2.add_run("─" * HORIZONTAL_LINE_WIDTH)
     run_line2.font.size = Pt(6)
     run_line2.font.color.rgb = RGBColor(100, 100, 100)
 
@@ -1308,7 +1323,7 @@ def generate_report():
                 "--outdir", REPORT_DIR,
                 docx_path,
             ],
-            capture_output=True, text=True, timeout=120,
+            capture_output=True, text=True, timeout=PDF_CONVERSION_TIMEOUT,
         )
         if result.returncode == 0:
             pdf_path = os.path.join(REPORT_DIR, "IEEE_Report_Wind_Turbine_Predictive_Maintenance.pdf")
