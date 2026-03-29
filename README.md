@@ -1,6 +1,6 @@
 # 🌬️ Turbine Gearbox Predictive Maintenance
 
-> **Bitirme Tezi Seviyesinde** Wind Turbine Gearbox Anomaly Detection & Remaining Useful Life Prediction
+>  Wind Turbine Gearbox Anomaly Detection & Remaining Useful Life Prediction
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
