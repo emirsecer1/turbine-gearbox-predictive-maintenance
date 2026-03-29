@@ -366,6 +366,68 @@ def generate_report():
         "birleştiren hibrit topluluk yaklaşımları; (4) %100 erken uyarı doğruluğu ile KKÖ "
         "tahmini; ve (5) SHAP ve LIME ile model açıklanabilirliğidir.")
 
+    body(doc,
+        "Küresel rüzgar enerjisi kapasitesi 2023 yılı itibarıyla 1.000 GW'ı aşmış olup, yıllık "
+        "büyüme oranı %12-15 aralığında seyretmektedir. Uluslararası Enerji Ajansı (IEA) verilerine "
+        "göre rüzgar enerjisi, 2030 yılına kadar dünya elektrik üretiminin %20'sinden fazlasını "
+        "karşılayabilecek potansiyele sahiptir. Türkiye, coğrafi konumu sayesinde özellikle Ege, "
+        "Marmara ve Akdeniz bölgelerinde yüksek rüzgar potansiyeline sahip olup, 2023 sonu itibarıyla "
+        "kurulu rüzgar enerjisi kapasitesi yaklaşık 11.500 MW'a ulaşmıştır. Türkiye Rüzgar Enerjisi "
+        "Birliği (TÜREB) projeksiyonlarına göre bu kapasitenin 2035 yılına kadar 30.000 MW'ı aşması "
+        "hedeflenmektedir.")
+
+    body(doc,
+        "Dişli kutusu arıza modları karmaşık ve çok boyutlu bir yapı sergilemektedir. Diş aşınması, "
+        "yüzey yorulması (pitting), diş kırığı ve mikro çatlak oluşumu gibi mekanik hasar türleri en "
+        "yaygın arıza mekanizmalarıdır. Rulman hasarları, iç ve dış bilezik kusurları, yuvarlanma "
+        "elemanı hasarı ve kafes bozulması şeklinde kendini göstermektedir. Yağ degradasyonu ise "
+        "viskozite değişimi, oksidasyon ürünleri birikimi, metal parçacık kontaminasyonu ve köpüklenme "
+        "gibi süreçleri kapsamaktadır. Bu arıza modlarının her biri farklı sensör imzaları üretmekte "
+        "olup, çok değişkenli analiz yaklaşımlarını zorunlu kılmaktadır. Özellikle kademeli bozulma "
+        "süreçleri, ani arıza olaylarından farklı olarak düşük genlikli ve yavaş değişen sinyal "
+        "örüntüleri sergilemekte, bu durum erken tespit algoritmalarını önemli ölçüde zorlaştırmaktadır.")
+
+    body(doc,
+        "SCADA sistemleri, rüzgar çiftliklerinde merkezi bir izleme ve kontrol altyapısı "
+        "sunmaktadır. Tipik bir SCADA kurulumu; türbin üzerindeki sensörlerden veri toplayan RTU "
+        "(Uzak Terminal Birimi) veya PLC (Programlanabilir Mantık Denetleyicisi), veri iletişim ağı "
+        "ve merkezi sunucu/operatör arayüzünden oluşmaktadır. Modern SCADA sistemleri 1-10 saniyelik "
+        "örnekleme frekanslarıyla yüzlerce parametre kaydedebilmekte; ancak uzun vadeli analiz için "
+        "veriler genellikle 10 dakikalık veya saatlik ortalamalara dönüştürülmektedir. SCADA verisi, "
+        "ek sensör donanımı gerektirmeden mevcut altyapıyı kullanması, düşük maliyetli olması ve "
+        "uzaktan erişim imkânı sağlaması nedeniyle kestirimci bakım uygulamaları için ideal bir veri "
+        "kaynağı teşkil etmektedir.")
+
+    body(doc,
+        "Bakım stratejileri üç ana paradigmaya ayrılmaktadır. Reaktif (düzeltici) bakım, arıza "
+        "gerçekleştikten sonra müdahale etme yaklaşımı olup, plansız duruş süreleri ve yüksek "
+        "onarım maliyetlerine yol açmaktadır. Önleyici (periyodik) bakım, üretici takvimlerine göre "
+        "sabit aralıklarla yapılmakta; ancak gereksiz bakım işlemleri nedeniyle kaynak israfına neden "
+        "olabilmekte ve beklenmedik arızaları önleyememektedir. Kestirimci bakım ise gerçek zamanlı "
+        "durum izleme verilerine dayalı olarak bileşen sağlık durumunu sürekli değerlendirmekte, "
+        "arıza oluşmadan önce bakım zamanlamasını optimize etmektedir. Araştırmalar, kestirimci bakımın "
+        "reaktif yaklaşıma kıyasla bakım maliyetlerini %25-30, önleyici bakıma kıyasla ise %8-12 "
+        "oranında azalttığını göstermektedir.")
+
+    body(doc,
+        "Mevcut literatür incelendiğinde, çoğu çalışmanın tek bir makine öğrenmesi paradigmasına "
+        "odaklandığı ve farklı yaklaşımların sistematik bir karşılaştırmasının eksik kaldığı "
+        "görülmektedir. Ayrıca denetimsiz anomali tespitinden Kalan Kullanım Ömrü (KKÖ) tahminine "
+        "uzanan uçtan uca bir çerçeve sunan çalışma sayısı oldukça sınırlıdır. Özellik mühendisliği "
+        "sürecinin model performansına etkisi yeterince araştırılmamış olup, açıklanabilirlik (XAI) "
+        "boyutu çoğu çalışmada göz ardı edilmiştir. Bu çalışma, söz konusu literatür boşluklarını "
+        "kapatmayı hedefleyerek çoklu paradigmaları entegre eden kapsamlı bir çerçeve sunmaktadır.")
+
+    body(doc,
+        "Makalenin geri kalan bölümleri şu şekilde organize edilmiştir: Bölüm II, rüzgar türbini "
+        "kestirimci bakımı alanındaki ilgili çalışmaları geleneksel yaklaşımlar, makine öğrenmesi, "
+        "derin öğrenme ve KKÖ tahmini başlıkları altında incelemektedir. Bölüm III, kullanılan veri "
+        "setini ve özellik mühendisliği sürecini detaylı olarak tanımlamaktadır. Bölüm IV, önerilen "
+        "yöntemleri (veri ön işleme, klasik MÖ, denetimsiz anomali tespiti, derin öğrenme, topluluk "
+        "yöntemleri, açıklanabilirlik ve KKÖ tahmini) açıklamaktadır. Bölüm V, deneysel sonuçları "
+        "kapsamlı tablolar ve görsellerle sunmaktadır. Bölüm VI, bulguları tartışmakta ve Bölüm VII "
+        "sonuçları özetleyerek gelecek çalışma önerilerini paylaşmaktadır.")
+
     # ============================================================
     #  II. İLGİLİ ÇALIŞMALAR
     # ============================================================
@@ -378,6 +440,26 @@ def generate_report():
         "basıklık, tepe faktörü) ve Hızlı Fourier Dönüşümü (FFT) ile frekans alanı analizi, dişli "
         "kutusu bileşenlerine özgü karakteristik arıza frekanslarının belirlenmesini sağlamıştır.")
 
+    body(doc,
+        "Titreşim analizi teknikleri, zaman alanı, frekans alanı ve zaman-frekans alanı olmak üzere "
+        "üç ana kategoride incelenmektedir. Zaman alanı yöntemleri; RMS (Karekök Ortalama), tepe "
+        "değeri, basıklık (kurtosis) ve çarpıklık gibi istatistiksel özellikler aracılığıyla sinyal "
+        "karakteristiklerini özetlemektedir. Frekans alanı analizinde FFT ve güç spektral yoğunluğu "
+        "(PSD) kullanılarak dişli çark mesh frekansı, rulman arıza frekansları (BPFO, BPFI, BSF) ve "
+        "harmonikleri tespit edilmektedir. Zaman-frekans alanı yöntemleri ise Kısa Zamanlı Fourier "
+        "Dönüşümü (STFT), Wavelet dönüşümü ve Hilbert-Huang dönüşümü gibi tekniklerle durağan olmayan "
+        "sinyallerdeki geçici olayların tespitine olanak sağlamaktadır [15].")
+
+    body(doc,
+        "Termal görüntüleme ve yağ analizi, titreşim analizini tamamlayan geleneksel durum izleme "
+        "yöntemleri arasında yer almaktadır. Kızılötesi termografi ile dişli kutusu gövdesindeki "
+        "anormal sıcaklık dağılımları, aşırı sürtünme veya yetersiz yağlama belirtileri olarak "
+        "değerlendirilmektedir. Yağ analizi kapsamında viskozite ölçümü, partikül sayımı, "
+        "spektrometrik metal analizi ve ferrografi gibi teknikler uygulanmaktadır. Yağdaki demir, "
+        "bakır ve krom parçacık konsantrasyonları, ilgili bileşenlerin aşınma seviyesini doğrudan "
+        "yansıtmaktadır. Ancak bu geleneksel yöntemler, uzman personel gerektirmesi, yüksek donanım "
+        "maliyeti ve sürekli çevrimiçi izleme için uygun olmaması gibi sınırlılıklar taşımaktadır.")
+
     heading(doc, "B. Makine Öğrenmesi Yöntemleri", 2)
     body(doc,
         "Makine öğrenmesinin rüzgar türbini kestirimci bakımına uygulanması önemli ivme "
@@ -385,6 +467,26 @@ def generate_report():
         "sınıflandırma görevlerinde güçlü performans sergilemiştir. Etiketli arıza verisinin kıt "
         "olduğu senaryolarda Isolation Forest ve One-Class SVM gibi denetimsiz yöntemler "
         "kullanılmıştır [1-3].")
+
+    body(doc,
+        "Topluluk (ensemble) yöntemleri, birden fazla temel öğrenicinin tahminlerini birleştirerek "
+        "genelleme performansını artırmaktadır. Bagging yaklaşımı (Random Forest), varyansı azaltarak "
+        "aşırı öğrenmeye karşı direnç sağlarken; boosting yaklaşımları (XGBoost, LightGBM, CatBoost) "
+        "ardışık olarak zayıf öğrenicilerin hatalarını düzelterek yanlılığı azaltmaktadır. Stacking "
+        "yöntemi ise farklı algoritmaların çıktılarını bir meta-öğrenici aracılığıyla birleştirerek "
+        "en yüksek düzeyde model çeşitliliği sağlamaktadır. Rüzgar türbini uygulamalarında bu topluluk "
+        "yöntemleri, tek başına kullanılan modellere kıyasla tutarlı iyileştirmeler göstermiştir [4-5].")
+
+    body(doc,
+        "Özellik seçimi ve özellik mühendisliği, model performansı üzerinde kritik bir etkiye "
+        "sahiptir. Filtre tabanlı yöntemler (karşılıklı bilgi, korelasyon analizi, varyans eşikleme), "
+        "sarmalayıcı yöntemler (özyinelemeli özellik eleme, ileri/geri seçim) ve gömülü yöntemler "
+        "(L1 düzenlileştirme, ağaç tabanlı önem skorları) olmak üzere üç ana yaklaşım "
+        "kullanılmaktadır. SCADA verisi bağlamında, ham sensör ölçümlerinden türetilen yuvarlanan "
+        "istatistikler, gecikme özellikleri ve frekans bileşenleri, modelin zamansal bozulma "
+        "örüntülerini yakalamasını önemli ölçüde iyileştirmektedir. Boyut indirgeme teknikleri "
+        "(PCA, t-SNE) ise yüksek boyutlu özellik uzaylarının görselleştirilmesi ve gürültü "
+        "filtrelemesi için yaygın olarak tercih edilmektedir [2-3].")
 
     heading(doc, "C. Derin Öğrenme Yaklaşımları", 2)
     body(doc,
@@ -394,12 +496,54 @@ def generate_report():
         "tabanlı mimariler, çok başlı öz-dikkat mekanizmaları aracılığıyla zaman serisi "
         "uygulamalarında umut verici sonuçlar göstermiştir [9-11].")
 
+    body(doc,
+        "CNN-LSTM hibrit mimarileri, konvolüsyonel katmanların yerel özellik çıkarma yeteneği ile "
+        "LSTM'in zamansal bağımlılık modelleme kapasitesini birleştirmektedir. Bir boyutlu CNN "
+        "katmanları ham sensör sinyallerinden otomatik özellik çıkarırken, ardından gelen LSTM "
+        "katmanları bu özelliklerin zamansal evrimini modellemektedir. Dikkat (attention) mekanizmaları, "
+        "hem CNN-LSTM hem de saf LSTM mimarilerine eklenerek modelin arıza ile ilişkili kritik zaman "
+        "adımlarına odaklanmasını sağlamaktadır. Bahdanau ve Luong dikkat mekanizmaları, gizli durum "
+        "dizileri üzerinde ağırlıklı toplam hesaplayarak bilgi darboğazını azaltmakta ve uzun "
+        "dizilerde performans kaybını önlemektedir [9, 11].")
+
+    body(doc,
+        "Transfer öğrenme, etiketli veri kıtlığı sorununa çözüm olarak derin öğrenme modellerinin "
+        "ön eğitimli ağırlıklarının farklı türbin tiplerine veya çalışma koşullarına aktarılmasını "
+        "mümkün kılmaktadır. Kaynak alan olarak büyük ölçekli endüstriyel veri setleri (C-MAPSS, "
+        "NASA rulman veri seti) üzerinde eğitilen modeller, hedef alan olan rüzgar türbini verileri "
+        "için ince ayar (fine-tuning) yapılarak kullanılmaktadır. Ayrıca öz-denetimli (self-supervised) "
+        "öğrenme yaklaşımları, etiketlenmemiş SCADA verisinden anlamlı temsiller öğrenerek alt görev "
+        "performansını artırmaktadır. Kontrastif öğrenme ve maskelenmiş otoregresif modelleme gibi "
+        "ön eğitim stratejileri, sınırlı etiketli veri koşullarında denetimli yöntemlere kıyasla "
+        "rekabetçi sonuçlar üretmiştir [10-11].")
+
     heading(doc, "D. Kalan Kullanım Ömrü Tahmini", 2)
     body(doc,
         "KKÖ tahmini, bir bileşenin arızalanmasına kalan süreyi tahmin ederek anomali tespitini "
         "genişletmektedir. Weibull dağılımı tabanlı güvenilirlik analizi, istatistiksel bir çerçeve "
         "sağlamaktadır. LSTM ve GRU regresyon modelleri, turbofan motorları, rulmanlar ve piller "
         "dahil çeşitli endüstriyel uygulamalarda başarıyla uygulanmıştır [16-17].")
+
+    body(doc,
+        "Bozulma (degradasyon) modelleme, KKÖ tahmini için temel bir yaklaşım olarak, bileşen "
+        "sağlık durumunun zamana bağlı değişimini matematiksel olarak formüle etmektedir. Doğrusal "
+        "ve üstel bozulma modelleri, Wiener ve Gamma süreçleri gibi stokastik modeller ile Bayesci "
+        "güncelleme mekanizmaları bu alanda yaygın olarak kullanılmaktadır. Sağlık Göstergesi (HI) "
+        "oluşturma, çok değişkenli sensör verilerini tek boyutlu bir bozulma eğrisine dönüştürerek "
+        "KKÖ tahminini kolaylaştırmaktadır. PCA tabanlı ve öz-kodlayıcı (autoencoder) tabanlı "
+        "sağlık göstergeleri, ham sensör verisinden daha tutarlı ve yorumlanabilir bozulma eğrileri "
+        "üretmektedir [17].")
+
+    body(doc,
+        "Fizik-bilgili (physics-informed) yaklaşımlar, veri güdümlü modellere fiziksel yasaları ve "
+        "mühendislik bilgisini entegre ederek tahmin güvenilirliğini artırmaktadır. Fizik-bilgili "
+        "sinir ağları (PINN), kayıp fonksiyonuna diferansiyel denklem kısıtlamaları ekleyerek "
+        "fiziksel olarak tutarlı tahminler üretmektedir. Dijital ikiz (digital twin) konsepti, "
+        "fiziksel modelin gerçek zamanlı sensör verisiyle sürekli güncellenmesini sağlayarak yüksek "
+        "doğruluklu KKÖ tahminleri mümkün kılmaktadır. Hibrit fizik-veri modelleri, özellikle "
+        "sınırlı eğitim verisi koşullarında saf veri güdümlü yaklaşımlara kıyasla üstün genelleme "
+        "performansı göstermiştir. Ancak bu yöntemler, bileşene özgü fiziksel model geliştirme "
+        "gereksinimi nedeniyle uygulama karmaşıklığı taşımaktadır [16-17].")
 
     # ============================================================
     #  III. VERİ SETİ VE ÖZELLİK MÜHENDİSLİĞİ
@@ -452,14 +596,74 @@ def generate_report():
         "Karşılıklı bilgi analizi, 168 saatlik yuvarlanan titreşim ortalamalarının en ayırt edici "
         "özellikler olduğunu ortaya koymuştur (vibration_y_roll_mean_168: MI skoru 0,0789).")
 
+    body(doc,
+        "Şekil 1, beş yıllık dönem boyunca yedi sensörün zaman serisi davranışını göstermektedir. "
+        "Dişli kutusu yağ sıcaklığı ve yağ basıncı parametreleri mevsimsel dalgalanmalar sergilerken, "
+        "titreşim ölçümleri anomali dönemlerinde belirgin genlik artışları göstermektedir. Jeneratör "
+        "devir sayısı ve aktif güç çıkışı arasındaki güçlü korelasyon, türbin operasyonel rejimlerini "
+        "yansıtmaktadır.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/sensor_time_series.png",
+            "Şekil 1: Yedi SCADA sensörünün beş yıllık zaman serisi görselleştirmesi")
+
+    body(doc,
+        "Veri kalitesi değerlendirmesi kapsamında eksik değer analizi gerçekleştirilmiştir. Şekil 2, "
+        "her sensör için eksik veri oranını ve dağılımını göstermektedir. Sensörler genelinde eksik "
+        "veri oranı düşük seviyede olup, mevcut eksik değerler ileri doldurma (forward fill) ve "
+        "doğrusal interpolasyon yöntemleriyle giderilmiştir.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/missing_values.png",
+            "Şekil 2: Sensör bazında eksik değer analizi ve dağılımı")
+
+    body(doc,
+        "Şekil 3, veri setindeki ciddi sınıf dengesizliğini görselleştirmektedir. Normal çalışma "
+        "örnekleri (%97,91) anomali örneklerine (%2,09) kıyasla yaklaşık 47 kat daha fazladır. Bu "
+        "dengesizlik, denetimli öğrenme modellerinin azınlık sınıfını doğru tespit etme kapasitesini "
+        "önemli ölçüde etkilemekte ve SMOTE gibi dengeleme tekniklerinin kullanımını zorunlu "
+        "kılmaktadır.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/class_imbalance.png",
+            "Şekil 3: Anomali ve normal sınıf dağılımı görselleştirmesi")
+
+    body(doc,
+        "Yuvarlanan istatistik özelliklerinin davranışı Şekil 4'te sunulmaktadır. 24, 48 ve 168 "
+        "saatlik pencere boyutlarıyla hesaplanan yuvarlanan ortalama ve standart sapma değerleri, "
+        "anomali dönemlerinde belirgin eğilim değişiklikleri göstermektedir. Uzun pencere boyutları "
+        "(168 saat) kademeli bozulma eğilimlerini yakalamada daha etkili iken, kısa pencereler "
+        "(24 saat) ani değişimlere daha hızlı tepki vermektedir.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/rolling_features.png",
+            "Şekil 4: Farklı pencere boyutlarıyla yuvarlanan istatistik özellikleri")
+
+    body(doc,
+        "Hızlı Fourier Dönüşümü (FFT) analizi, sensör sinyallerindeki periyodik bileşenleri ortaya "
+        "çıkarmıştır. Şekil 5, her sensör için frekans spektrumunu göstermekte olup, günlük ve "
+        "haftalık periyotlara karşılık gelen baskın frekans bileşenleri açıkça görülmektedir. "
+        "Anomali dönemlerinde belirli frekans bantlarında enerji artışı gözlemlenmiş, bu durum "
+        "FFT tabanlı özelliklerin arıza tespitindeki potansiyelini doğrulamıştır.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/fft_analysis.png",
+            "Şekil 5: Sensör sinyallerinin FFT frekans spektrumu analizi")
+
+    body(doc,
+        "Gecikme özellikleri ve otokorelasyon analizi Şekil 6'da gösterilmektedir. Sensör "
+        "sinyallerinin otokorelasyon fonksiyonları, güçlü kısa vadeli bağımlılıklar ve uzun vadeli "
+        "periyodik örüntüler sergilemektedir. 1, 6, 12 ve 24 saatlik gecikme değerleri, zamansal "
+        "bağımlılık yapısını modellemede etkili özellikler olarak belirlenmiştir. Yüksek otokorelasyon "
+        "değerleri, LSTM ve TCN gibi zamansal modellerin bu veri seti için uygun olduğunu "
+        "göstermektedir.")
+
+    add_fig(doc, "01_EDA_Feature_Engineering/results/lag_autocorrelation.png",
+            "Şekil 6: Sensör sinyallerinin gecikme ve otokorelasyon analizi")
+
     add_fig(doc, "01_EDA_Feature_Engineering/results/correlation_matrix.png",
-            "Şekil 1: Mühendislik özelliklerin korelasyon matrisi")
+            "Şekil 7: Mühendislik özelliklerin korelasyon matrisi")
 
     add_fig(doc, "01_EDA_Feature_Engineering/results/feature_importance_mutual_info.png",
-            "Şekil 2: Karşılıklı bilgi skorlarına göre özellik önem sıralaması")
+            "Şekil 8: Karşılıklı bilgi skorlarına göre özellik önem sıralaması")
 
     add_fig(doc, "01_EDA_Feature_Engineering/results/anomaly_timeline.png",
-            "Şekil 3: 5 yıllık dönemde anomali olaylarının zamansal dağılımı")
+            "Şekil 9: 5 yıllık dönemde anomali olaylarının zamansal dağılımı")
 
     # ============================================================
     #  IV. YÖNTEM
@@ -472,6 +676,15 @@ def generate_report():
         "korunarak (shuffle=False) uygulanmıştır. Bu yaklaşım gelecekteki gözlemlerden veri "
         "sızıntısını önlemektedir. SMOTE (Sentetik Azınlık Aşırı Örnekleme Tekniği) yalnızca "
         "eğitim setine k_neighbors=5 ile uygulanmıştır.")
+
+    body(doc,
+        "Şekil 10, SMOTE uygulaması öncesi ve sonrası sınıf dağılımını göstermektedir. Orijinal "
+        "eğitim setindeki 47:1 dengesizlik oranı, sentetik azınlık örnekleri üretilerek dengeli "
+        "hale getirilmiştir. SMOTE algoritması, azınlık sınıfından rastgele bir örnek seçerek en "
+        "yakın k komşusuna doğru doğrusal interpolasyon ile yeni sentetik örnekler oluşturmaktadır.")
+
+    add_fig(doc, "02_Classical_ML_Baselines/results/smote_balancing.png",
+            "Şekil 10: SMOTE uygulaması öncesi ve sonrası sınıf dağılımı")
 
     heading(doc, "B. Klasik Makine Öğrenmesi Modelleri", 2)
     body(doc,
@@ -574,13 +787,33 @@ def generate_report():
         "olduğunu ortaya koymuştur (oil_pressure_roll_std_24: 0,119).")
 
     add_fig(doc, "02_Classical_ML_Baselines/results/roc_pr_curves.png",
-            "Şekil 4: Klasik MÖ modelleri için ROC ve PR eğrileri")
+            "Şekil 11: Klasik MÖ modelleri için ROC ve PR eğrileri")
 
     add_fig(doc, "02_Classical_ML_Baselines/results/confusion_matrices.png",
-            "Şekil 5: Klasik MÖ modelleri için karmaşıklık matrisleri")
+            "Şekil 12: Klasik MÖ modelleri için karmaşıklık matrisleri")
 
     add_fig(doc, "02_Classical_ML_Baselines/results/feature_importance_models.png",
-            "Şekil 6: Modeller arası özellik önem karşılaştırması")
+            "Şekil 13: Modeller arası özellik önem karşılaştırması")
+
+    body(doc,
+        "Şekil 14, dört klasik makine öğrenmesi modelinin performans metriklerini karşılaştırmalı "
+        "olarak sunmaktadır. Random Forest'ın dengesizlik koşullarında dahi makul F1 skoru elde "
+        "etmesi, ağaç tabanlı topluluk yöntemlerinin bu tür veri setlerindeki gücünü "
+        "kanıtlamaktadır. XGBoost ve LightGBM'in yüksek ROC-AUC fakat düşük F1 değerleri, bu "
+        "modellerin varsayılan eşik değerinde yetersiz kaldığını göstermektedir.")
+
+    add_fig(doc, "02_Classical_ML_Baselines/results/model_comparison.png",
+            "Şekil 14: Klasik MÖ modellerinin performans metrik karşılaştırması")
+
+    body(doc,
+        "Eşik optimizasyonu, dengesiz veri setlerinde model performansını önemli ölçüde "
+        "etkilemektedir. Şekil 15, her model için F1 skorunun farklı eşik değerlerine göre "
+        "değişimini göstermektedir. Random Forest için optimal eşik 0,18 olarak belirlenmiş olup "
+        "bu değer varsayılan 0,50 eşiğinden önemli ölçüde düşüktür; bu durum azınlık sınıfı "
+        "tespiti için daha düşük eşiklerin gerekli olduğunu ortaya koymaktadır.")
+
+    add_fig(doc, "02_Classical_ML_Baselines/results/threshold_optimization.png",
+            "Şekil 15: Klasik MÖ modelleri için eşik optimizasyonu analizi")
 
     heading(doc, "B. Denetimsiz Anomali Tespiti Sonuçları", 2)
     body(doc,
@@ -605,10 +838,40 @@ def generate_report():
         "dağılımı normal ve anormal gözlemler arasında net ayrım göstermiştir.")
 
     add_fig(doc, "03_Anomaly_Detection_Unsupervised/results/unsupervised_roc_pr.png",
-            "Şekil 7: Denetimsiz yöntemler için ROC ve PR eğrileri")
+            "Şekil 16: Denetimsiz yöntemler için ROC ve PR eğrileri")
 
     add_fig(doc, "03_Anomaly_Detection_Unsupervised/results/anomaly_score_distributions.png",
-            "Şekil 8: Her denetimsiz yöntem için anomali skor dağılımları")
+            "Şekil 17: Her denetimsiz yöntem için anomali skor dağılımları")
+
+    body(doc,
+        "Denetimsiz yöntemlerin karşılaştırmalı performansı Şekil 18'de görselleştirilmiştir. "
+        "Tüm yöntemler 0,99 üzeri ROC-AUC elde etmiş olup bu durum SCADA verilerindeki anomali "
+        "örüntülerinin normal çalışma dağılımından belirgin biçimde ayrıştığını göstermektedir. "
+        "Isolation Forest ve One-Class SVM arasındaki performans farkı istatistiksel olarak "
+        "marjinal düzeydedir.")
+
+    add_fig(doc, "03_Anomaly_Detection_Unsupervised/results/unsupervised_comparison.png",
+            "Şekil 18: Denetimsiz anomali tespit yöntemleri karşılaştırma grafiği")
+
+    body(doc,
+        "Her bir sensörün anomali tespitine katkısı Şekil 19'da detaylı olarak analiz "
+        "edilmiştir. Titreşim sensörleri (özellikle Y ve Z eksenleri) ve yağ basıncı parametresi, "
+        "anomali skor hesaplamasına en yüksek katkıyı sağlamaktadır. Bu bulgu, dişli kutusu "
+        "mekanik bozulmalarının öncelikle titreşim ve yağlama parametrelerinde kendini gösterdiğini "
+        "doğrulamaktadır.")
+
+    add_fig(doc, "03_Anomaly_Detection_Unsupervised/results/sensor_anomaly_contribution.png",
+            "Şekil 19: Anomali tespitinde sensör bazlı katkı analizi")
+
+    body(doc,
+        "Autoencoder modelinin eğitim süreci Şekil 20'de gösterilmektedir. Eğitim ve doğrulama "
+        "kayıpları yakınsama davranışı sergilemekte olup aşırı öğrenme belirtisi gözlemlenmemiştir. "
+        "Normal veriler üzerinde eğitilen autoencoder, anomali örneklerini yüksek yeniden yapılandırma "
+        "hatası ile tespit edebilmekte; bu durum normal ve anormal gözlemler arasındaki örtük uzay "
+        "temsillerinin farklılığını yansıtmaktadır.")
+
+    add_fig(doc, "03_Anomaly_Detection_Unsupervised/results/autoencoder_training.png",
+            "Şekil 20: Autoencoder eğitim ve doğrulama kayıp eğrileri")
 
     heading(doc, "C. Derin Öğrenme Sonuçları", 2)
     body(doc,
@@ -633,13 +896,13 @@ def generate_report():
         "eğilimlerini modellemesine olanak tanımaktadır.")
 
     add_fig(doc, "04_TimeSeries_DeepLearning/results/training_histories.png",
-            "Şekil 9: Derin öğrenme modelleri eğitim ve doğrulama kayıp geçmişleri")
+            "Şekil 21: Derin öğrenme modelleri eğitim ve doğrulama kayıp geçmişleri")
 
     add_fig(doc, "04_TimeSeries_DeepLearning/results/dl_roc_pr_curves.png",
-            "Şekil 10: Derin öğrenme modelleri için ROC ve PR eğrileri")
+            "Şekil 22: Derin öğrenme modelleri için ROC ve PR eğrileri")
 
     add_fig(doc, "04_TimeSeries_DeepLearning/results/dl_model_comparison.png",
-            "Şekil 11: Derin öğrenme performans metrik karşılaştırma ısı haritası")
+            "Şekil 23: Derin öğrenme performans metrik karşılaştırma ısı haritası")
 
     heading(doc, "D. Topluluk ve Açıklanabilirlik Sonuçları", 2)
     body(doc,
@@ -660,10 +923,37 @@ def generate_report():
         caption="Tablo V: Topluluk Bağlamında Denetimsiz Model Performansı")
 
     add_fig(doc, "05_Hybrid_Ensemble/results/unsupervised_roc_pr.png",
-            "Şekil 12: Topluluk denetimsiz bileşenleri için ROC ve PR eğrileri")
+            "Şekil 24: Topluluk denetimsiz bileşenleri için ROC ve PR eğrileri")
 
     add_fig(doc, "05_Hybrid_Ensemble/results/sensor_anomaly_contribution.png",
-            "Şekil 13: Anomali tespitinde sensör katkı analizi")
+            "Şekil 25: Anomali tespitinde sensör katkı analizi")
+
+    body(doc,
+        "Topluluk çerçevesindeki anomali skor dağılımları Şekil 26'da sunulmaktadır. Denetimsiz "
+        "modellerin ürettiği anomali skorlarının dağılımı, normal ve anormal örnekler arasında "
+        "net bir ayrım sağlamaktadır. Bu skorlar, denetimli meta-öğreniciye ek giriş özellikleri "
+        "olarak entegre edildiğinde topluluk performansını önemli ölçüde artırmaktadır.")
+
+    add_fig(doc, "05_Hybrid_Ensemble/results/anomaly_score_distributions.png",
+            "Şekil 26: Topluluk bağlamında anomali skor dağılımları")
+
+    body(doc,
+        "Denetimsiz bileşenlerin topluluk içindeki karşılaştırmalı performansı Şekil 27'de "
+        "gösterilmektedir. One-Class SVM topluluk bağlamında da en yüksek performansı korurken, "
+        "autoencoder tabanlı anomali skorları diğer yöntemlere tamamlayıcı bilgi sunarak "
+        "topluluk çeşitliliğine katkıda bulunmaktadır.")
+
+    add_fig(doc, "05_Hybrid_Ensemble/results/unsupervised_comparison.png",
+            "Şekil 27: Topluluk denetimsiz bileşenleri karşılaştırma grafiği")
+
+    body(doc,
+        "Topluluk çerçevesinde kullanılan autoencoder modelinin eğitim süreci Şekil 28'de "
+        "detaylı olarak sunulmaktadır. Normal operasyonel veriler üzerinde eğitilen autoencoder, "
+        "darboğaz mimarisi sayesinde verinin düşük boyutlu bir temsilini öğrenmekte ve anomali "
+        "örnekleri yüksek yeniden yapılandırma hatası ile ayırt etmektedir.")
+
+    add_fig(doc, "05_Hybrid_Ensemble/results/autoencoder_training.png",
+            "Şekil 28: Topluluk autoencoder eğitim ve doğrulama kayıp eğrileri")
 
     heading(doc, "E. Kalan Kullanım Ömrü Tahmin Sonuçları", 2)
     body(doc,
@@ -702,16 +992,34 @@ def generate_report():
         "planlama) ve Kritik (KKÖ<24s, acil bakım).")
 
     add_fig(doc, "06_RUL_Prediction/results/rul_actual_vs_predicted.png",
-            "Şekil 14: LSTM ve GRU modelleri için gerçek ve tahmin edilen KKÖ değerleri")
+            "Şekil 29: LSTM ve GRU modelleri için gerçek ve tahmin edilen KKÖ değerleri")
 
     add_fig(doc, "06_RUL_Prediction/results/degradation_curves.png",
-            "Şekil 15: Anomali olayları öncesi sensör bozulma eğrileri")
+            "Şekil 30: Anomali olayları öncesi sensör bozulma eğrileri")
 
     add_fig(doc, "06_RUL_Prediction/results/early_warning_accuracy.png",
-            "Şekil 16: 24s, 48s ve 72s ufuklarında erken uyarı doğruluğu")
+            "Şekil 31: 24s, 48s ve 72s ufuklarında erken uyarı doğruluğu")
 
     add_fig(doc, "06_RUL_Prediction/results/maintenance_timeline.png",
-            "Şekil 17: Renk kodlu karar bölgeleriyle kestirimci bakım zaman çizelgesi")
+            "Şekil 32: Renk kodlu karar bölgeleriyle kestirimci bakım zaman çizelgesi")
+
+    body(doc,
+        "KKÖ değerlerinin zamansal evrimi Şekil 33'te gösterilmektedir. Tahmin edilen KKÖ "
+        "değerleri, anomali olaylarına yaklaştıkça monoton bir azalma sergilemekte olup bu durum "
+        "modelin kademeli bozulma sürecini başarıyla yakaladığını doğrulamaktadır. LSTM modeli, "
+        "özellikle 72 saat altındaki kritik bölgede yüksek doğruluk göstermektedir.")
+
+    add_fig(doc, "06_RUL_Prediction/results/rul_timeline.png",
+            "Şekil 33: Zaman boyunca KKÖ tahminlerinin evrimi")
+
+    body(doc,
+        "LSTM ve GRU modellerinin karşılaştırmalı KKÖ tahmin performansı Şekil 34'te "
+        "sunulmaktadır. LSTM modeli tüm ufuklarda GRU'dan düşük hata değerleri elde etmiş olup "
+        "özellikle kısa vadeli tahminlerde (24-48 saat) üstünlüğü daha belirgin şekilde "
+        "görülmektedir. Her iki model de 72 saat üzeri ufuklarda hata artışı göstermiştir.")
+
+    add_fig(doc, "06_RUL_Prediction/results/rul_model_comparison.png",
+            "Şekil 34: LSTM ve GRU KKÖ tahmin modellerinin karşılaştırması")
 
     # ============================================================
     #  F. KAPSAMLI PERFORMANS ÖZETİ
@@ -891,6 +1199,8 @@ def generate_report():
         r = p.add_run(ref)
         r.font.name = "Times New Roman"
         r.font.size = Pt(7.5)
+        r.font.color.rgb = RGBColor(0, 0, 0)
+        r.font.underline = False
 
     # ============================================================
     #  SAVE
