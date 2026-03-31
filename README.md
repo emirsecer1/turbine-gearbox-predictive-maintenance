@@ -12,7 +12,7 @@
 
 <br/>
 
-*Mechatronics Engineering — Undergraduate Thesis Project*  
+*Mechatronics Engineering *  
 **Fırat University, Department of Mechatronics Engineering**
 
 </div>
