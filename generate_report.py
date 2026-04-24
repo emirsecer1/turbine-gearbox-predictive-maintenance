@@ -28,6 +28,29 @@ HEX_COLOR_RE = re.compile(r"^[0-9A-Fa-f]{6}$")
 COL_IMG_WIDTH = Inches(3.25)
 
 
+def _add_hyperlink(paragraph, text, url):
+    """Append a clickable hyperlink run to an existing paragraph."""
+    part = paragraph.part
+    r_id = part.relate_to(url, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink", is_external=True)
+    hyperlink = parse_xml(
+        f'<w:hyperlink r:id="{r_id}" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+        f'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/>'
+    )
+    new_run = parse_xml(
+        '<w:r xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        '<w:rPr>'
+        '<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>'
+        '<w:sz w:val="15"/>'
+        '<w:color w:val="1155CC"/>'
+        '<w:u w:val="single"/>'
+        '</w:rPr>'
+        f'<w:t xml:space="preserve"> {text}</w:t>'
+        '</w:r>'
+    )
+    hyperlink.append(new_run)
+    paragraph._p.append(hyperlink)
+
+
 def _valid_color(c):
     if not HEX_COLOR_RE.match(c):
         raise ValueError(f"Invalid color: {c!r}")
@@ -448,7 +471,7 @@ def generate_report():
         "(PSD) kullanılarak dişli çark mesh frekansı, rulman arıza frekansları (BPFO, BPFI, BSF) ve "
         "harmonikleri tespit edilmektedir. Zaman-frekans alanı yöntemleri ise Kısa Zamanlı Fourier "
         "Dönüşümü (STFT), Wavelet dönüşümü ve Hilbert-Huang dönüşümü gibi tekniklerle durağan olmayan "
-        "sinyallerdeki geçici olayların tespitine olanak sağlamaktadır [15].")
+        "sinyallerdeki geçici olayların tespitine olanak sağlamaktadır [14].")
 
     body(doc,
         "Termal görüntüleme ve yağ analizi, titreşim analizini tamamlayan geleneksel durum izleme "
@@ -532,7 +555,7 @@ def generate_report():
         "oluşturma, çok değişkenli sensör verilerini tek boyutlu bir bozulma eğrisine dönüştürerek "
         "KKÖ tahminini kolaylaştırmaktadır. PCA tabanlı ve öz-kodlayıcı (autoencoder) tabanlı "
         "sağlık göstergeleri, ham sensör verisinden daha tutarlı ve yorumlanabilir bozulma eğrileri "
-        "üretmektedir [17].")
+        "üretmektedir [16].")
 
     body(doc,
         "Fizik-bilgili (physics-informed) yaklaşımlar, veri güdümlü modellere fiziksel yasaları ve "
@@ -1149,58 +1172,79 @@ def generate_report():
     # ============================================================
     heading(doc, "KAYNAKLAR", 1)
 
+    # Each entry: (reference text, access URL or None)
     refs = [
-        '[1] Y. Wang, X. Ma, P. Qian, "Wind turbine fault detection and identification through '
-        'self-attention-based mechanism," Renewable Energy, vol. 211, pp. 918-937, 2023.',
-        '[2] A. Stetco et al., "Machine learning methods for wind turbine condition monitoring: '
-        'A review," Renewable Energy, vol. 133, pp. 620-635, 2019.',
-        '[3] F. P. G. de Jong, W. J. C. Verhagen, "A review of predictive maintenance for wind '
-        'turbines using ML techniques," Energy Reports, vol. 8, pp. 5738-5768, 2022.',
-        '[4] T. Chen, C. Guestrin, "XGBoost: A scalable tree boosting system," Proc. 22nd ACM '
-        'SIGKDD, pp. 785-794, 2016.',
-        '[5] G. Ke et al., "LightGBM: A highly efficient gradient boosting decision tree," '
-        'NeurIPS, vol. 30, pp. 3146-3154, 2017.',
-        '[6] F. T. Liu, K. M. Ting, Z.-H. Zhou, "Isolation forest," Proc. IEEE ICDM, '
-        'pp. 413-422, 2008.',
-        '[7] B. Scholkopf et al., "Estimating the support of a high-dimensional distribution," '
-        'Neural Computation, vol. 13, no. 7, pp. 1443-1471, 2001.',
-        '[8] M. M. Breunig et al., "LOF: Identifying density-based local outliers," '
-        'Proc. ACM SIGMOD, pp. 93-104, 2000.',
-        '[9] S. Hochreiter, J. Schmidhuber, "Long short-term memory," Neural Computation, '
-        'vol. 9, no. 8, pp. 1735-1780, 1997.',
-        '[10] S. Bai, J. Z. Kolter, V. Koltun, "An empirical evaluation of generic convolutional '
-        'and recurrent networks for sequence modeling," arXiv:1803.01271, 2018.',
-        '[11] A. Vaswani et al., "Attention is all you need," NeurIPS, vol. 30, '
-        'pp. 5998-6008, 2017.',
-        '[12] S. M. Lundberg, S.-I. Lee, "A unified approach to interpreting model predictions," '
-        'NeurIPS, vol. 30, pp. 4765-4774, 2017.',
-        '[13] M. T. Ribeiro, S. Singh, C. Guestrin, "Why should I trust you? Explaining the '
-        'predictions of any classifier," Proc. 22nd ACM SIGKDD, pp. 1135-1144, 2016.',
-        '[14] N. V. Chawla et al., "SMOTE: Synthetic minority over-sampling technique," '
-        'JAIR, vol. 16, pp. 321-357, 2002.',
-        '[15] W. Qiao, D. Lu, "A survey on wind turbine condition monitoring and fault '
-        'diagnosis," IEEE Trans. Ind. Electron., vol. 62, no. 10, pp. 6536-6545, 2015.',
-        '[16] K. Cho et al., "Learning phrase representations using RNN encoder-decoder," '
-        'Proc. EMNLP, pp. 1724-1734, 2014.',
-        '[17] X.-S. Si et al., "Remaining useful life estimation - A review on the statistical '
-        'data driven approaches," EJOR, vol. 213, no. 1, pp. 1-14, 2011.',
-        '[18] L. Breiman, "Random forests," Machine Learning, vol. 45, no. 1, pp. 5-32, 2001.',
-        '[19] D. E. Rumelhart, G. E. Hinton, R. J. Williams, "Learning representations by '
-        'back-propagating errors," Nature, vol. 323, pp. 533-536, 1986.',
-        '[20] J. Macqueen, "Some methods for classification and analysis of multivariate '
-        'observations," Proc. 5th Berkeley Symp., pp. 281-297, 1967.',
+        ('[1] T. Guo, H. Wang, J. Li, H. Wang, "Wind turbine fault detection and identification '
+         'through self-attention-based mechanism embedded with a multivariable query pattern," '
+         'Renewable Energy, vol. 211, pp. 918-937, 2023. (DOI: 10.1016/j.renene.2023.04.113)',
+         'https://doi.org/10.1016/j.renene.2023.04.113'),
+        ('[2] A. Stetco et al., "Machine learning methods for wind turbine condition monitoring: '
+         'A review," Renewable Energy, vol. 133, pp. 620-635, 2019.',
+         'https://doi.org/10.1016/j.renene.2018.10.047'),
+        ('[3] T. Chen, C. Guestrin, "XGBoost: A scalable tree boosting system," Proc. 22nd ACM '
+         'SIGKDD, pp. 785-794, 2016.',
+         'https://dl.acm.org/doi/10.1145/2939672.2939785'),
+        ('[4] G. Ke et al., "LightGBM: A highly efficient gradient boosting decision tree," '
+         'NeurIPS, vol. 30, pp. 3146-3154, 2017.',
+         'https://papers.nips.cc/paper/6907-lightgbm'),
+        ('[5] F. T. Liu, K. M. Ting, Z.-H. Zhou, "Isolation forest," Proc. IEEE ICDM, '
+         'pp. 413-422, 2008.',
+         'https://ieeexplore.ieee.org/document/4781136'),
+        ('[6] B. Scholkopf et al., "Estimating the support of a high-dimensional distribution," '
+         'Neural Computation, vol. 13, no. 7, pp. 1443-1471, 2001.',
+         'https://doi.org/10.1162/089976601750264965'),
+        ('[7] M. M. Breunig et al., "LOF: Identifying density-based local outliers," '
+         'Proc. ACM SIGMOD, pp. 93-104, 2000.',
+         'https://dl.acm.org/doi/10.1145/335191.335388'),
+        ('[8] S. Hochreiter, J. Schmidhuber, "Long short-term memory," Neural Computation, '
+         'vol. 9, no. 8, pp. 1735-1780, 1997.',
+         'https://doi.org/10.1162/neco.1997.9.8.1735'),
+        ('[9] S. Bai, J. Z. Kolter, V. Koltun, "An empirical evaluation of generic convolutional '
+         'and recurrent networks for sequence modeling," arXiv:1803.01271, 2018.',
+         'https://arxiv.org/abs/1803.01271'),
+        ('[10] A. Vaswani et al., "Attention is all you need," NeurIPS, vol. 30, '
+         'pp. 5998-6008, 2017.',
+         'https://papers.nips.cc/paper/7181-attention-is-all-you-need'),
+        ('[11] S. M. Lundberg, S.-L. Lee, "A unified approach to interpreting model predictions," '
+         'NeurIPS, vol. 30, pp. 4765-4774, 2017.',
+         'https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions'),
+        ('[12] M. T. Ribeiro, S. Singh, C. Guestrin, "Why should I trust you? Explaining the '
+         'predictions of any classifier," Proc. 22nd ACM SIGKDD, pp. 1135-1144, 2016.',
+         'https://dl.acm.org/doi/10.1145/2939672.2939778'),
+        ('[13] N. V. Chawla et al., "SMOTE: Synthetic minority over-sampling technique," '
+         'JAIR, vol. 16, pp. 321-357, 2002.',
+         'https://doi.org/10.1613/jair.953'),
+        ('[14] W. Qiao, D. Lu, "A survey on wind turbine condition monitoring and fault '
+         'diagnosis," IEEE Trans. Ind. Electron., vol. 62, no. 10, pp. 6536-6545, 2015.',
+         'https://ieeexplore.ieee.org/document/7084135'),
+        ('[15] K. Cho et al., "Learning phrase representations using RNN encoder-decoder," '
+         'Proc. EMNLP, pp. 1724-1734, 2014.',
+         'https://aclanthology.org/D14-1179/'),
+        ('[16] X.-S. Si et al., "Remaining useful life estimation - A review on the statistical '
+         'data driven approaches," EJOR, vol. 213, no. 1, pp. 1-14, 2011.',
+         'https://doi.org/10.1016/j.ejor.2010.11.018'),
+        ('[17] L. Breiman, "Random forests," Machine Learning, vol. 45, no. 1, pp. 5-32, 2001.',
+         'https://doi.org/10.1023/A:1010933404324'),
+        ('[18] D. E. Rumelhart, G. E. Hinton, R. J. Williams, "Learning representations by '
+         'back-propagating errors," Nature, vol. 323, pp. 533-536, 1986.',
+         'https://doi.org/10.1038/323533a0'),
+        ('[19] J. Macqueen, "Some methods for classification and analysis of multivariate '
+         'observations," Proc. 5th Berkeley Symp., pp. 281-297, 1967.',
+         'https://projecteuclid.org/euclid.bsmsp/1200512992'),
     ]
-    for ref in refs:
+    for ref_text, ref_url in refs:
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         p.paragraph_format.space_after = Pt(1)
         p.paragraph_format.left_indent = Cm(0.4)
         p.paragraph_format.first_line_indent = Cm(-0.4)
-        r = p.add_run(ref)
+        r = p.add_run(ref_text)
         r.font.name = "Times New Roman"
         r.font.size = Pt(7.5)
         r.font.color.rgb = RGBColor(0, 0, 0)
         r.font.underline = False
+        if ref_url:
+            _add_hyperlink(p, ref_url, ref_url)
 
     # ============================================================
     #  SAVE
